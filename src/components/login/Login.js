@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 import { useDispatch } from "react-redux";
 import Swal from 'sweetalert2';
 import withReactContent from "sweetalert2-react-content";
-import { login } from '../../reducers/accions/auth';
+import { setUserID, store } from "../../reducers/store/authSlice";
 const cookies = new Cookies();
 const MySwal = withReactContent(Swal)
 
@@ -39,7 +39,8 @@ export default function Login() {
             html: <i>Bienvenido: {data.data.email}</i>,
             icon: 'success',
           }).then((redirect) => {
-            // dispatch(login(data.data.id));
+            // dispatch(setUserID(data.data ? data.data.id : ""));
+            localStorage.setItem("ID", data.data ? data.data.id : "8");
             window.location.href = "/auth";
           });
         }).catch(error => {      
