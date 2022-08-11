@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.menu-item:hover .item-image-hover {
+  fill: #84D5FF;
+}
+
 .center {
   display: flex;
   justify-content: center;
