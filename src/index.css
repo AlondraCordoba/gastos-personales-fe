@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
+
 html, body{
     height: 100%;
-=======
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -17,5 +18,4 @@ code {
   align-items: center;
   height: 100vh;
   width: 100vw;
->>>>>>> d18eeb144156bb60a81206c22b2a56d421250fd1
 }
