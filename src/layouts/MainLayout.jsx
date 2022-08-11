@@ -1,8 +1,17 @@
 import HamburgerMenu from "../assets/hamburguer.png";
 import Alien from "../assets/alien.png";
 import Piggy from "../assets/piggy-bank-solid.svg";
+import React, { useEffect } from "react";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 function MainLayout() {
+  useEffect(() => {
+    const token = cookies.get("TOKEN");
+    if (!token) {
+      window.location.href = "/";
+    }
+  }, [cookies]);
   return (
     <div className="flex flex-row md:h-screen">
       <nav className="w-full md:w-64 flex flex-row md:flex-col items-center justify-between p-5 md:p-0 md:bg-[#5C509B] ">
@@ -12,9 +21,17 @@ function MainLayout() {
           <p className="text-2xl font-medium mb-1.5">Alien Alieno</p>
           <p className="mb-14">ID75315926</p>
           <div className="flex flex-row items-center justify-center p-3 hover:bg-[#7D73B2] cursor-pointer">
-            <img src={Piggy} alt="" className="w-8 mr-5"/>
+            <img src={Piggy} alt="" className="w-8 mr-5" />
             <p>Mis apartados</p>
           </div>
+          <button
+            onClick={() => {
+              cookies.remove("TOKEN", { path: "/" });
+              window.location.href = "/";
+            }}
+          >
+            Logout
+          </button>
         </div>
       </nav>
       <div></div>
