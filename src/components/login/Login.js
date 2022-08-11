@@ -60,7 +60,7 @@ export default function Login() {
     <div>
       <div className="context">
         <div>
-        <div class="coin silver"></div>
+        <div className="coin silver"></div>
         <br />
           <input
             placeholder="user@email.com"
