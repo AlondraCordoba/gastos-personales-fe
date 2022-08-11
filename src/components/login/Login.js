@@ -2,68 +2,110 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useDispatch } from "react-redux";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { login } from '../../reducers/accions/auth';
+import { login } from "../../reducers/accions/auth";
 const cookies = new Cookies();
-const MySwal = withReactContent(Swal)
+const MySwal = withReactContent(Swal);
 
 export default function Login() {
-
   const dispatch = useDispatch();
   useEffect(() => {
     cookies.remove("TOKEN");
   }, []);
-  
+
   const model = {
-    email: '',
-    password: ''
-  }
+    email: "",
+    password: "",
+  };
 
   const loginHome = () => {
-    model.email === '' && model.password === '' ? (
-      MySwal.fire({
-        title: <strong>Ingrese su correo y contrasenia para continuar</strong>,
-        // html: <i>Error: {error.response.data}</i>,
-        icon: 'warning',
-        
-      })
-    )
-    : (
-        axios.post(process.env.REACT_APP_MONGO + '/login', model).then(data => {
-          cookies.set("TOKEN", data.data.token, {
-            path: "/",
-          });          
-          MySwal.fire({
-            title: <strong>Datos correctos!</strong>,
-            html: <i>Bienvenido: {data.data.email}</i>,
-            icon: 'success',
-          }).then((redirect) => {
-            // dispatch(login(data.data.id));
-            window.location.href = "/auth";
-          });
-        }).catch(error => {      
-          MySwal.fire({
-            title: <strong>Datos incorrectos</strong>,
-            html: <i>Error: {error.response.data}</i>,
-            icon: 'warning',
-            
-          })
+    model.email === "" && model.password === ""
+      ? MySwal.fire({
+          title: (
+            <strong>Ingrese su correo y contrasenia para continuar</strong>
+          ),
+          // html: <i>Error: {error.response.data}</i>,
+          icon: "warning",
         })
+      : axios
+          .post(process.env.REACT_APP_MONGO + "/login", model)
+          .then((data) => {
+            cookies.set("TOKEN", data.data.token, {
+              path: "/",
+            });
+            MySwal.fire({
+              title: <strong>Datos correctos!</strong>,
+              html: <i>Bienvenido: {data.data.email}</i>,
+              icon: "success",
+            }).then((redirect) => {
+              // dispatch(login(data.data.id));
+              window.location.href = "/auth";
+            });
+          })
+          .catch((error) => {
+            MySwal.fire({
+              title: <strong>Datos incorrectos</strong>,
+              html: <i>Error: {error.response.data}</i>,
+              icon: "warning",
+            });
+          });
+  };
 
-      )
-  }
+  const register = () => {
+    window.location.href = "/register";
+  };
 
-  return(
-    <div className="center">
-      <div>
-        <input placeholder="Email" onChange={(e) => model.email = e.target.value}/><br></br>
-        <input type="password" placeholder="Password" onChange={(e) => model.password = e.target.value}/><br></br>
-        <button onClick={(e) => loginHome()}>Login</button>
-        {/* <button onClick={() => {setArray((current) => ({...current, like: !likepost}))}}>Ingresar</button> */}
+  return (
+    <div>
+      <div className="context">
+        <div>
+        <div class="coin silver"></div>
+        <br />
+          <input
+            placeholder="user@email.com"
+            className="email"
+            type="email"
+            autoComplete="false"
+            onChange={(e) => (model.email = e.target.value)}
+          />
+          <br></br>
+          <input
+            type="password"
+            placeholder="Password"
+            className="password"
+            onChange={(e) => (model.password = e.target.value)}
+          />
+          {/*<button onClick={(e) => loginHome()}>Login</button>
+             <button onClick={() => {setArray((current) => ({...current, like: !likepost}))}}>Ingresar</button> */}
+          <div className="multi-button">
+          <br />
+            <button className="outer-left" onClick={(e) => loginHome()}>
+              Login
+            </button>
+            <button className="outer-right" onClick={(e) => register()}>
+              Registro
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="area">
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </div>
-  )
+  );
 }
 
 // import logo from './logo.svg';
@@ -93,7 +135,7 @@ export default function Login() {
 //   useEffect(() => {
 //     getElements();
 //   }, []);
-  
+
 //   const getElements = () => {
 //     axios.get(process.env.REACT_APP_MONGO + '/categorias').then(data => {
 //       setElements(data.data);
@@ -150,14 +192,14 @@ export default function Login() {
 //                   <div style={{background: 'gray', height: '150px', width: '150px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer'}}>{data.name}</div>
 //                 </Collapse>
 //             ))
-//           } 
+//           }
 //         </TransitionGroup>
 //           {/* {
 //             lista && lista.map((data, index) => (
 //             ))
 //           } */}
 //       </div>
-      
+
 //     </div>
 //   );
 // }
