@@ -1,0 +1,15 @@
+{
+  "nav_home": "Inicio",
+  "nav_pokemons": "Pokemones",
+  "nav_info": "Info",
+  "pagination_box": "Almacenamiento",
+  "search_input": "Buscar Pokemon",
+  "searchbox_text": "Busca Pokemon por su nombre",
+  "info_title": "App desarrollada por",
+  "info_student_id": "Matricula",
+  "info_class": "Grado y Grupo",
+  "home_title": "Pokemon API de nostalgia",
+  "home_message": "La unica PokeAPI de nostalgia ahi afuera en el internet maestro",
+  "home_message_": "Pruebala ahora!"
+
+}
