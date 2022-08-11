@@ -32,7 +32,7 @@ export default function Register() {
           <div>
             <input
               autoComplete="false"
-              placeholder="Email"
+              placeholder="user@email.com"
               className="email"
               type="email"
               onChange={(e) => (model.email = e.target.value)}

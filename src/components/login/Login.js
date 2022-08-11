@@ -66,6 +66,7 @@ export default function Login() {
             placeholder="user@email.com"
             className="email"
             type="email"
+            autoComplete="false"
             onChange={(e) => (model.email = e.target.value)}
           />
           <br></br>
