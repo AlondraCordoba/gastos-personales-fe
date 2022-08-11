@@ -1,0 +1,14 @@
+{
+  "nav_home": "Home",
+  "nav_pokemons": "Pokemons",
+  "nav_info": "Info",
+  "pagination_box": "Storage",
+  "search_input": "Search Pokemon",
+  "searchbox_text": "Search Pokemon by name",
+  "info_title": "App developed by",
+  "info_student_id": "Student ID",
+  "info_class": "Class",
+  "home_title": "Nostalgia Pokemon API",
+  "home_message": "The only nostalgia PokeAPI out there in the internet mister",
+  "home_message_": "Try it now!"
+}
