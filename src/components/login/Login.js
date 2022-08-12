@@ -12,6 +12,8 @@ export default function Login() {
   const dispatch = useDispatch();
   useEffect(() => {
     cookies.remove("TOKEN");
+    localStorage.removeItem("array");
+    localStorage.removeItem("ID");
   }, []);
 
   const model = {
