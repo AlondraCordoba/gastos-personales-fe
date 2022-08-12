@@ -13,7 +13,7 @@ const App = () => {
   const route = window.location.pathname.split('/');
 
   return(
-    <div style={location.length > 1 && route[1] !== "register" ? {display: 'flex'}: {display: 'block'}}>  
+    <div style={location.length > 1 && route[1] !== "register" ? {display: 'flex', flexDirection: 'column'}: {display: 'block'}}>  
         {
           location.length > 1 && route[1] !== "register" ? (
               <MainLayout/>
