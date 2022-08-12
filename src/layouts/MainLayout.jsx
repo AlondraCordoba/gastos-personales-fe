@@ -20,7 +20,7 @@ function MainLayout() {
     <div className="">
       <nav className="flex flex-row flex-wrap items-center justify-evenly bg-[#5C509B] text-white p-5">
         <p className="w-24 text-left hover:underline cursor-pointer">
-          <Link to="/incomes">Inicio</Link>
+          <Link to="/home">Inicio</Link>
         </p>
         <p className="w-24 text-left hover:underline cursor-pointer">
           <Link to="/incomes">Mis ingresos</Link>
@@ -28,7 +28,15 @@ function MainLayout() {
         <p className="w-24 text-left hover:underline cursor-pointer">
           <Link to="/expenses">Mis gastos</Link>
         </p>
-        <p className="w-24 text-left hover:underline cursor-pointer">Salir</p>
+        <p
+          className="w-24 text-left hover:underline cursor-pointer"
+          onClick={() => {
+            cookies.remove("TOKEN", { path: "/" });
+            window.location.href = "/";
+          }}
+        >
+          Salir
+        </p>
       </nav>
     </div>
   );
