@@ -1,3 +1,4 @@
+import { current } from "@reduxjs/toolkit";
 import axios from "axios";
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
@@ -9,6 +10,7 @@ const DataContext = React.createContext({
 
 export function DataProvider(props) {
     const [data, setData] = useState([]);
+    const array = [];
     const id = localStorage.getItem("ID");
     // const { data, setData } = useContext(DataContext);
     const result = React.useMemo(() => ({
@@ -27,9 +29,18 @@ export function DataProvider(props) {
                         }
                     } 
                 }
-            }  
+            }
         });
     }, []);
+
+    useEffect(() => {
+        if(data){
+            for(let i=0; i<data.length; i++){
+                array.push(data[i].monto);
+            }
+            localStorage.setItem("array", [array]);
+        }
+    }, [data]);
 
     return (
         <DataContext.Provider value={result} {...props} />
