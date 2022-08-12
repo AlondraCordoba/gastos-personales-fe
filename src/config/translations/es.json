@@ -1,15 +1,21 @@
 {
   "nav_home": "Inicio",
-  "nav_pokemons": "Pokemones",
-  "nav_info": "Info",
-  "pagination_box": "Almacenamiento",
-  "search_input": "Buscar Pokemon",
-  "searchbox_text": "Busca Pokemon por su nombre",
-  "info_title": "App desarrollada por",
-  "info_student_id": "Matricula",
-  "info_class": "Grado y Grupo",
-  "home_title": "Pokemon API de nostalgia",
-  "home_message": "La unica PokeAPI de nostalgia ahi afuera en el internet maestro",
-  "home_message_": "Pruebala ahora!"
+  "nav_expenses": "Mis gastos",
+  "nav_income": "Mis ingresos",
+  "nav_logout": "Salir",
+  "expense_title": "Mis gastos",
+  "expense_button": "Nuevo gasto",
+  "expense_create_modal_title": "Agregar nuevo gasto",
+  "expense_edit_modal_title": "Editar gasto",
+  "income_title": "Mis ingresos",
+  "income_button": "Nuevo ingreso",
+  "income_create_modal_title": "Agregar nuevo ingreso",
+  "income_edit_modal_title": "Editar ingreso",
+  "description": "Descripción",
+  "amount": "Monto",
+  "add": "Agregar",
+  "edit": "Editar",
+  "cancel": "Cancelar",
+  "delete": "Eliminar"
 
 }

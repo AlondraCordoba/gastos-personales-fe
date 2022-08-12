@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Data } from "../../context/data-context";
 import axios from "axios";
+import { t } from "i18next";
 
 function Index() {
   const [showCreateModal, setCreateModal] = useState(false);
@@ -76,13 +77,13 @@ function Index() {
         <div className="flex flex-row justify-center">
           <div className="w-full md:w-1/2 flex flex-row flex-wrap items-center">
             <p className="w-full md:w-1/2 text-center text-4xl md:mb-0 mb-5">
-              Mis ingresos
+            {t("income_title")}
             </p>
             <button
               className="w-full md:w-1/2 flex justify-center bg-[#DCDAE4] hover:bg-[#5C509B] hover:text-white rounded"
               onClick={() => setCreateModal(true)}
             >
-              Nuevo ingreso
+            {t("income_button")}
             </button>
           </div>
         </div>
@@ -96,12 +97,12 @@ function Index() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-xl md:text-3xl">Agregar nuevo ingreso</h3>
+                  <h3 className="text-xl md:text-3xl">{t("income_create_modal_title")}</h3>
                 </div>
                 {/*body*/}
                 <div className="p-5">
                   <div className="flex flex-col mb-5">
-                    <label className="mb-3 font-semibold">Descripción:</label>
+                    <label className="mb-3 font-semibold">{t("description")}</label>
                     <input
                       onChange={(e) => {
                         model.name = e.target.value;
@@ -124,7 +125,7 @@ function Index() {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="mb-3 font-semibold">Monto:</label>
+                    <label className="mb-3 font-semibold">{t("amount")}</label>
                     <input
                       onChange={(e) => {
                         model.monto = e.target.value;
@@ -154,14 +155,14 @@ function Index() {
                     type="button"
                     onClick={() => setCreateModal(false)}
                   >
-                    Cancelar
+                    {t("cancel")}
                   </button>
                   <button
                     className="text-emerald-500 bg-transparent uppercase px-6 py-3 text-sm outline-none rounded hover:bg-emerald-500 hover:text-white m-1"
                     type="button"
                     onClick={() => postCategory()}
                   >
-                    Agregar
+                    {t("add")}
                   </button>
                 </div>
               </div>
@@ -178,12 +179,12 @@ function Index() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-xl md:text-3xl">Editar ingreso</h3>
+                  <h3 className="text-xl md:text-3xl">{t("income_edit_modal_title")}</h3>
                 </div>
                 {/*body*/}
                 <div className="p-5">
                   <div className="flex flex-col mb-5">
-                    <label className="mb-3 font-semibold">Descripción:</label>
+                    <label className="mb-3 font-semibold">{t("description")}</label>
                     <input
                       onChange={(e) => {
                         model.name = e.target.value;
@@ -206,7 +207,7 @@ function Index() {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="mb-3 font-semibold">Monto:</label>
+                    <label className="mb-3 font-semibold">{t("amount")}</label>
                     <input
                       onChange={(e) => {
                         model.monto = e.target.value;
@@ -236,7 +237,7 @@ function Index() {
                     type="button"
                     onClick={() => setEditModal(false)}
                   >
-                    Cancelar
+                    {t("cancel")}
                   </button>
                   <button
                     className="text-emerald-500 bg-transparent uppercase px-6 py-3 text-sm outline-none rounded hover:bg-emerald-500 hover:text-white m-1"
@@ -246,7 +247,7 @@ function Index() {
                       putCategory();
                     }}
                   >
-                    Editar
+                    {t("edit")}
                   </button>
                 </div>
               </div>
@@ -273,7 +274,7 @@ function Index() {
                       deleteCategory(result._id);
                     }}
                   >
-                    Eliminar
+                    {t("delete")}
                   </button>
                   <button
                     className="text-[#5C509B] bg-transparent uppercase px-6 py-3 text-sm outline-none rounded hover:bg-[#5C509B] hover:text-white m-1"
@@ -283,7 +284,7 @@ function Index() {
                       setEditId(result._id);
                     }}
                   >
-                    Editar
+                    {t("edit")}
                   </button>
                 </div>
               </div>
