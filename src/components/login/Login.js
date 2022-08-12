@@ -40,6 +40,7 @@ export default function Login() {
               icon: "success",
             }).then((redirect) => {
               // dispatch(login(data.data.id));
+              localStorage.setItem("ID", data.data.id);
               window.location.href = "/home";
             });
           })
