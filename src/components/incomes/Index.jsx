@@ -47,7 +47,7 @@ function Index() {
   }
 
   const deleteCategory = (id) => {
-    axios.delete(process.env.REACT_APP_MONGO + '/delete-category', id).then((result) => {
+    axios.delete(process.env.REACT_APP_MONGO + `/delete-category/${id}`).then((result) => {
       getCategory();
       console.log(result);
     });
