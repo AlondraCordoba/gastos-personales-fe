@@ -27,7 +27,7 @@ export default function Register() {
     <div>
       <div className="context">
         <div>
-          <div class="coin silver"></div>
+          <div className="coin silver"></div>
           <br />
           <div>
             <input

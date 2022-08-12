@@ -40,7 +40,7 @@ export default function Login() {
               icon: "success",
             }).then((redirect) => {
               // dispatch(login(data.data.id));
-              window.location.href = "/auth";
+              window.location.href = "/home";
             });
           })
           .catch((error) => {
@@ -60,7 +60,7 @@ export default function Login() {
     <div>
       <div className="context">
         <div>
-        <div class="coin silver"></div>
+        <div className="coin silver"></div>
         <br />
           <input
             placeholder="user@email.com"
