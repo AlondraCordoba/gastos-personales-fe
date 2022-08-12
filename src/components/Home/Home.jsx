@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { Data } from "../../context/data-context";
 
-function Home() {
+
+function Home(props) {
   const [info, setInfo] = useState([]);
-  const getCategories = () => {
-    axios.get(process.env.REACT_APP_MONGO + '/categorias-gastos').then((result) => {
-      setInfo(result.data[0].categorias_por_usuario);
-    });
-  }
+  const data = Data();
 
-  useEffect(() => {
-    getCategories();
-  }, []);
 
   return(
     <div className="homePage">
-      <h1>Bienvenido</h1>
       {
-        info && info.map((c, i) => (
+        data && data.data.map((c, i) => (
           <h1 key={i}>{c.name}</h1>
         ))
       }
